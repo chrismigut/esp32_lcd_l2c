@@ -1,5 +1,5 @@
-#ifndef BINARY_TO_HEX.H
-#define BINARY_TO_HEX.H
+#ifndef BINARY_TO_HEX_H 
+#define BINARY_TO_HEX_H 
 
 #include "i2c_address_locator.h"
 
