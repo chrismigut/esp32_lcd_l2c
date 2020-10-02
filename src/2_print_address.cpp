@@ -24,6 +24,10 @@
     21 : SDA
 */
 
+/* I2C Defualt Address
+    4x20 lcd: 0x27
+*/
+
 const uint8_t ROWS = 4;
 const uint8_t COLS = 20;
 
