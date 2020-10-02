@@ -27,15 +27,22 @@
 const uint8_t ROWS = 4;
 const uint8_t COLS = 20;
 
-const byte address = find_i2c_address();
-LiquidCrystal_I2C lcd(address, COLS, ROWS);
+const uint8_t TIME_DELAY = 2000;
 
+void display_text(LiquidCrystal_I2C lcd, char * text_to_display, bool scroll_enabled){
+  lcd.setCursor(0,0);
+
+  if(scroll_enabled){lcd.scrollDisplayRight();}
+  
+  lcd.print(text_to_display);
+}
 
 void setup() {
   Wire.begin();
   Serial.begin(115200);
   Serial.println("\nI2C Scanner");
 
+  LiquidCrystal_I2C lcd(find_i2c_address(), COLS, ROWS);
 
   lcd.init();
   lcd.backlight();
@@ -48,7 +55,10 @@ void setup() {
   lcd.setCursor(0,2);
   lcd.print("Hello World");
   
+  delay(TIME_DELAY);
+  lcd.clear();
 
+  display_text(lcd, "test", true);
 
 }
 
